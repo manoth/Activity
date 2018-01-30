@@ -11,7 +11,7 @@ export class AppComponent {
   loginPage: string;
   regitPage: string;
 
-  token: boolean = true;
+  token: boolean = false;
 
   ngOnInit() {
     this.loginPage = this.loginPath('signin');
