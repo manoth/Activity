@@ -1,20 +1,127 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div id="wrapper">
+  <nav class="navbar navbar-default navbar-static-top m-b-0">
+    <div class="navbar-header">
+      <div class="top-left-part">
+        <!-- Logo -->
+        <a class="logo" href="index-2.html">
+          <b>
+            <img src="assets/plugins/images/admin-logo.png" alt="home" class="dark-logo" />
+            <img src="assets/plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />
+          </b>
+          <span class="hidden-xs">
+            <img src="assets/plugins/images/admin-text.png" alt="home" class="dark-logo" />
+            <img src="assets/plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
+          </span>
+        </a>
+      </div>
+      <!-- /Logo -->
+      <!-- Search input and Toggle icon -->
+      <ul class="nav navbar-top-links navbar-left">
+        <li>
+          <a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs">
+            <i class="ti-close ti-menu"></i>
+          </a>
+        </li>
+        <!-- .Task dropdown -->
+      </ul>
+      <ul class="nav navbar-top-links navbar-right pull-right">
+        <li>
+          <form role="search" class="app-search hidden-sm hidden-xs m-r-10">
+            <input type="text" placeholder="Search..." class="form-control">
+            <a href="#">
+              <i class="fa fa-search"></i>
+            </a>
+          </form>
+        </li>
+        <li *ngIf="!token">
+          <a [href]="loginPage" class="dropdown-toggle">
+            <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
+            เข้าสู่ระบบ
+          </a>
+        </li>
+        <li *ngIf="!token">
+          <a [href]="regitPage" class="dropdown-toggle">
+            <i class="glyphicon glyphicon-edit" aria-hidden="true"></i>
+            สมัครสมาชิก
+          </a>
+        </li>
+        <li class="dropdown" *ngIf="token">
+          <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="javascript:void(0)">
+            <img src="assets/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle">
+            <b class="hidden-xs">Steave</b>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu dropdown-user animated flipInY">
+            <li>
+              <div class="dw-user-box">
+                <div class="u-img">
+                  <img src="assets/plugins/images/users/varun.jpg" alt="user" />
+                </div>
+                <div class="u-text">
+                  <h4>Steave Jobs</h4>
+                  <p class="text-muted">varun@gmail.com</p>
+                  <a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
+                </div>
+              </div>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="ti-user"></i> My Profile</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="ti-wallet"></i> My Balance</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="ti-email"></i> Inbox</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="ti-settings"></i> Account Setting</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="fa fa-power-off"></i> Logout</a>
+            </li>
+          </ul>
+          <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
+      </ul>
+    </div>
+  </nav>
 
+  <app-menu></app-menu>
+
+  <div id="page-wrapper">
+    <div class="container-fluid">
+      <div class="row bg-title">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+          <h4 class="page-title">Calendar Page</h4>
+        </div>
+        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+          <button class="right-side-toggle waves-effect waves-light btn-info btn-circle pull-right m-l-20">
+            <i class="ti-settings text-white"></i>
+          </button>
+          <ol class="breadcrumb">
+            <li>
+              <a href="javascript:void(0)">Dashboard</a>
+            </li>
+            <li class="active">Calendar Page</li>
+          </ol>
+        </div>
+        <!-- /.col-lg-12 -->
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+    
+    <router-outlet></router-outlet>
+
+    <app-footer></app-footer>
+  </div>
+  <!-- /#page-wrapper -->
+</div>
