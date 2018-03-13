@@ -16,26 +16,36 @@ export class BreadcrumbComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private mainService: MainService
-  ) { 
+  ) {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-        if (this.filterData(params.id)) {
-          this.data = this.filterData(params.id);
-        } else {
-          this.router.navigate(['/']);
-        }
-    });
+    this.getRoom();
   }
 
-  filterData(id) {
-    let data = this.mainService.data();
+  filterData(id, data) {
     for (let i = 0; i < data.length; i++) {
       if (data[i].room_id == id) {
         return data[i];
       }
     }
+  }
+
+  getRoom() {
+    this.mainService.getData('room')
+      .then((data: any) => {
+        this.route.params.subscribe(params => {
+          if (this.filterData(params.id, data.data)) {
+            this.data = this.filterData(params.id, data.data);
+          } else {
+            if (this.router.url != '/add') {
+              this.router.navigate(['/']);
+            }
+          }
+        });
+      }).catch((err: any) => {
+        this.router.navigate(['/']);
+      });
   }
 
 }

@@ -29,7 +29,7 @@ export class MainService {
     });
   }
 
-  getDate(path: string) {
+  getData(path: string) {
     return new Promise((resolve, reject) => {
       let url = `${this.url}/${path}`;
       this.http.get(url)
@@ -101,15 +101,6 @@ export class MainService {
   // base64 encoded ascii to ucs-2 string
   atou(str) {
     return window.atob(str.replace('=',''));
-  }
-
-  data() {
-    return [
-      { room_id: 'R01', room_name: 'ห้องประชุม 1', room_amount: 60, room_icon: 'mdi-clipboard-text' },
-      { room_id: 'R02', room_name: 'ห้องประชุม 2', room_amount: 60, room_icon: 'mdi-clipboard-text' },
-      { room_id: 'R03', room_name: 'ห้องประชุม 3', room_amount: 60, room_icon: 'mdi-clipboard-text' },
-      { room_id: 'R04', room_name: 'ห้องประชุม 4', room_amount: 60, room_icon: 'mdi-clipboard-text' }
-    ];
   }
 
 

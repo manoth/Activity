@@ -9,14 +9,23 @@ import { MainService } from '../shared/main.service';
 })
 export class MenuComponent implements OnInit {
 
-  room: Array<any>;
+  room: any;
 
   constructor(
     private mainService: MainService
   ) {  }
 
   ngOnInit() {
-    this.room = this.mainService.data();
+    this.getRoom();
+  }
+
+  getRoom() {
+    this.mainService.getData('room')
+      .then((data:any) => {
+        this.room = data.data;
+      }).catch((err:any) => {
+        this.room = err.message;
+      });
   }
 
 }

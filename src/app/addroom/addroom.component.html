@@ -17,9 +17,9 @@
                     <div class="col-md-4 col-sm-6">
                       <select class="form-control">
                         <option>-- เลือกห้องประชุม --</option>
-                        <option>ห้องประชุม 1</option>
-                        <option>ห้องประชุม 2</option>
-                        <option>ห้องประชุม 3</option>
+                        <option *ngFor="let r of room" [value]="r.room_id">
+                          {{ r.room_name }}
+                        </option>
                       </select>
                       <!-- <span class="help-block"> This field has error. </span> -->
                     </div>
@@ -34,9 +34,9 @@
                     <div class="col-md-4 col-sm-6">
                       <select class="form-control">
                         <option>-- เลือกหน่วยงานที่จอง --</option>
-                        <option>หน่วยงาน 1</option>
-                        <option>หน่วยงาน 2</option>
-                        <option>หน่วยงาน 3</option>
+                        <option *ngFor="let p of party" [value]="p.party_id">
+                          {{ p.party_name }}
+                        </option>
                       </select>
                       <!-- <span class="help-block"> This field has error. </span> -->
                     </div>
@@ -51,9 +51,9 @@
                     <div class="col-md-4 col-sm-6">
                       <select class="form-control">
                         <option>-- เลือกประเภทการประชุม --</option>
-                        <option>ประชุม Conference กระทรวง</option>
-                        <option>ประชุม Conference ภายใน</option>
-                        <option>ประชุมแบบทั่วไป</option>
+                        <option *ngFor="let t of roomType" [value]="t.type_id">
+                          {{ t.type_meeting }}
+                        </option>
                       </select>
                       <!-- <span class="help-block"> This field has error. </span> -->
                     </div>

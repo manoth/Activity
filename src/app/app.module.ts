@@ -58,7 +58,7 @@ export function getAuthHttp(http) {
     RouterModule.forRoot(appRoutes, { useHash: false })
   ],
   providers: [
-    { provide: 'API_URL', useValue: 'http://203.157.182.15/eoffice/api' },
+    { provide: 'API_URL', useValue: 'http://127.0.01:3000' },
     { provide: 'SIGNIN_URL', useValue: 'http://203.157.182.15/accountsv2' },
     { provide: AuthHttp, useFactory: getAuthHttp, deps: [Http] },
     MainService
