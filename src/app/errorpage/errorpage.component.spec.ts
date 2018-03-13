@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Dashboard3Component } from './dashboard3.component';
+import { ErrorpageComponent } from './errorpage.component';
 
-describe('Dashboard3Component', () => {
-  let component: Dashboard3Component;
-  let fixture: ComponentFixture<Dashboard3Component>;
+describe('ErrorpageComponent', () => {
+  let component: ErrorpageComponent;
+  let fixture: ComponentFixture<ErrorpageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Dashboard3Component ]
+      declarations: [ ErrorpageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Dashboard3Component);
+    fixture = TestBed.createComponent(ErrorpageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

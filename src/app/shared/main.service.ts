@@ -103,4 +103,27 @@ export class MainService {
     return window.atob(str.replace('=',''));
   }
 
+  data() {
+    return [
+      { room_id: 'R01', room_name: 'ห้องประชุม 1', room_amount: 60, room_icon: 'mdi-clipboard-text' },
+      { room_id: 'R02', room_name: 'ห้องประชุม 2', room_amount: 60, room_icon: 'mdi-clipboard-text' },
+      { room_id: 'R03', room_name: 'ห้องประชุม 3', room_amount: 60, room_icon: 'mdi-clipboard-text' },
+      { room_id: 'R04', room_name: 'ห้องประชุม 4', room_amount: 60, room_icon: 'mdi-clipboard-text' }
+    ];
+  }
+
+
+  getTest() {
+    let data = new Promise((resolve, reject) => {
+      let url = `https://jsonplaceholder.typicode.com/users`;
+      this.http.get(url).map(res => res.json()).subscribe(data => {
+          resolve(data);
+        }, error => {
+          reject(error);
+        })
+    });
+
+    return data;
+  }
+
 }

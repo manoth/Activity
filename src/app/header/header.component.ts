@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.objPayload = this.mainService.isToken();
-    console.log(this.objPayload);
+    // console.log(this.objPayload);
 
     this.loginPage = this.mainService.loginPath('signin');
     this.regitPage = this.mainService.loginPath('signup');

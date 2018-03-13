@@ -14,20 +14,20 @@ import { MainService } from './shared/main.service';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
-import { Dashboard2Component } from './dashboard2/dashboard2.component';
-import { Dashboard3Component } from './dashboard3/dashboard3.component';
 import { HeaderComponent } from './header/header.component';
 import { HubComponent } from './hub/hub.component';
+import { MeetingroomComponent } from './meetingroom/meetingroom.component';
+import { AddroomComponent } from './addroom/addroom.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { ErrorpageComponent } from './errorpage/errorpage.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'dash1', pathMatch: 'full' },
-  { path: 'dash1', component: DashboardComponent},
-  { path: 'dash2', component: Dashboard2Component, data: { a: 'aaa', b: 'bbb' } },
-  { path: 'dash3', component: Dashboard3Component, data: { a: '111', b: '222' } },
+  { path: '', redirectTo: 'room/R01', pathMatch: 'full' },
+  { path: 'room/:id', component: MeetingroomComponent},
+  { path: 'add', component: AddroomComponent},
   { path: 'hub', component: HubComponent },
-  { path: '**', redirectTo: 'dash1', pathMatch: 'full' }
+  { path: '**', component: ErrorpageComponent }
 ];
 
 export function getAuthHttp(http) {
@@ -43,12 +43,13 @@ export function getAuthHttp(http) {
   declarations: [
     AppComponent,
     MenuComponent,
-    DashboardComponent,
     FooterComponent,
-    Dashboard2Component,
-    Dashboard3Component,
     HeaderComponent,
-    HubComponent
+    HubComponent,
+    MeetingroomComponent,
+    AddroomComponent,
+    BreadcrumbComponent,
+    ErrorpageComponent
   ],
   imports: [
     FormsModule,
